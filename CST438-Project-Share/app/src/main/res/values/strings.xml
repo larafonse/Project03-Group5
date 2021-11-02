@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CST438-Project-Share</string>
+    <string name="username">Username . . .</string>
+    <string name="password">Password . . .</string>
+    <string name="repassword">Re-enter password . . .</string>
+    <string name="Register">register</string>
 </resources>
