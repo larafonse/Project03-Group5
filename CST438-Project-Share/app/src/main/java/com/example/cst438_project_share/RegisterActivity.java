@@ -32,6 +32,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String uPassword = password.getText().toString();
                 String reuPassword = repassword.getText().toString();
 //                String uOccupation = occupation.get;
+
+                if (uName.equals("")) {
+                    // let the user know it cannot be empty
+                }
+                if (!uPassword.equals(reuPassword)) {
+                    // Passwords need to match
+                }
             }
         });
     }
