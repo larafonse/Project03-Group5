@@ -1,6 +1,7 @@
 package com.example.cst438_project_share;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class RegisterActivity extends AppCompatActivity {
+
+    public static final String TAG= "MainActivity";
+    final FragmentManager fragmentManager = getSupportFragmentManager();
+    private BottomNavigationView bottomNavigationView;
 
     EditText username, password, repassword;
     Spinner occupation;
@@ -18,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         username = findViewById(R.id.Rusername);
         password = findViewById(R.id.Rpassword);
