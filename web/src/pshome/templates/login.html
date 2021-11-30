@@ -5,4 +5,14 @@
 
 {% block body %}
 <h1>Login</h1>
+<h3>{{ message }}</h3>
+<button type="submit"><a href="/signup">Sign-up</a></button>
+<form action='/login/' method="post">
+    {% csrf_token %}
+    <label> Username: </label>
+    <input type="text" name="user" required autocomplete="off"/>
+    <label> Password: </label>
+    <input type="password" name="password" required autocomplete="off"/>
+    <button type="submit">Login</button>    
+</form>
 {% endblock %}
