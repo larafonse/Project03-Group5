@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.cst438_project_share.fragments.ComposeFragment;
-import com.example.cst438_project_share.fragments.HomeFragment;
+import com.example.cst438_project_share.fragments.FeedFragment;
 import com.example.cst438_project_share.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
-                        fragment = new HomeFragment();
+                        fragment = new FeedFragment();
                         break;
                     case R.id.compose_action:
                         Toast.makeText(MainActivity.this, "Compose", Toast.LENGTH_SHORT).show();
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
                         fragment = new ProfileFragment();
                         break;
-                    default: fragment = new HomeFragment();
+                    default: fragment = new FeedFragment();
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
             }
