@@ -63,6 +63,14 @@ public class LoginActivity extends AppCompatActivity {
                             JSONArray results = json.jsonArray;
                             Log.i(TAG, "Results: "+results.toString());
 
+                            if(results.length() != 0){
+                                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(i);
+                            }
+                            else{
+                                Toast.makeText(LoginActivity.this, "Error: Incorrect Username/Password", Toast.LENGTH_LONG).show();
+                            }
+
                         }
 
                         @Override
