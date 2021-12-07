@@ -12,7 +12,7 @@ class User(models.Model):
     picture_url= models.CharField(max_length=10000)
     role = models.CharField(max_length=100)
     def __str__(self):
-        return self.name
+        return "Username: "+self.username +" - ID: "+ str(self.id) 
 
 
 class Post(models.Model):
