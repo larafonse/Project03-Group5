@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/project_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/imgborder"
+        android:contentDescription="project image"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/projectN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project Name"
+        android:textColor="#57EC47"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/project_img"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <Button
+        android:id="@+id/more_project"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="..."
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        app:backgroundTint="#FFFFFF"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:id="@+id/project_name"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:hint="Project Name"
+        android:layout_below="@+id/projectN"
+        android:layout_toRightOf="@+id/project_img"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/techS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tech Stack"
+        android:textSize="15dp"
+        android:textColor="#FF57EC47"
+        android:layout_toRightOf="@+id/project_img"
+        android:layout_below="@+id/project_name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"/>
+
+    <TextView
+        android:id="@+id/tech_stack"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_toRightOf="@+id/project_img"
+        android:layout_below="@+id/techS"
+        android:layout_marginLeft="10dp"
+        android:inputType="textImeMultiLine"
+        android:hint="tech stack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/desTV"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/project_img"
+        android:text="Description"
+        android:textColor="#57EC47"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/desTV"
+        android:inputType="textImeMultiLine"
+        android:hint="tech stack"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:background="@drawable/imgborder"
+        android:layout_margin="15dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/byTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="By: "
+            android:textColor="#57EC47"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/project_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/byTV"
+            android:hint="owner"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/roleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role: "
+            android:textColor="#57EC47"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/project_owner"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/project_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/roleTV"
+            android:hint="role"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

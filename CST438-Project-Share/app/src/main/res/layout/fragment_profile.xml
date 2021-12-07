@@ -5,10 +5,76 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/user_img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/imgborder"
+            android:contentDescription="project image"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textColor="#57EC47"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/user_img"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/user_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="Username"
+            android:layout_below="@+id/username"
+            android:layout_toRightOf="@+id/user_img"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="#57EC47"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/user_img"
+            android:layout_below="@+id/user_username"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/user_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="Password"
+            android:layout_below="@+id/password"
+            android:layout_toRightOf="@+id/user_img"
+            android:layout_marginLeft="15dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPosts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/user_img"/>
+
+    </RelativeLayout>
 
 </FrameLayout>
