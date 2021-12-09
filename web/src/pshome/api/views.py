@@ -37,6 +37,16 @@ class UserViewSet(viewsets.ModelViewSet):
 class PostViewSet(viewsets.ModelViewSet):
    queryset = Post.objects.all()
    serializer_class = PostSerializer
+
+   def get_queryset(self):
+      user_id = self.request.query_params.get('user_id')
+      queryset = Post.objects.all()
+      if user_id is not None:
+         user = User.objects.get(id=user_id)
+         queryset = queryset.filter(user_id=user)
+        
+      return queryset
+
    def create(self, validated_data):
       user_id = self.request.query_params.get('user_id')
       project_name = self.request.query_params.get('project_name')
