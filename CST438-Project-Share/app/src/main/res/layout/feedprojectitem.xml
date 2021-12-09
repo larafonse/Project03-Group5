@@ -44,7 +44,7 @@
     <TextView
         android:id="@+id/project_name"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="33dp"
         android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="@color/black"

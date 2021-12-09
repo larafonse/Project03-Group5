@@ -6,18 +6,28 @@ import java.net.URL;
 
 public class Posts {
 
-    @SerializedName("userID")
+    @SerializedName("id")
+    private int id;
+    @SerializedName("user_id")
     private int userId;
-    @SerializedName("description")
+    @SerializedName("project_description")
     private String description;
-    @SerializedName("picture_url")
+    @SerializedName("project_img")
     private String imgURL;
     @SerializedName("tech_stack")
     private String techStack;
-    @SerializedName("projectName")
+    @SerializedName("project_name")
     private String projectName;
     @SerializedName("external_link")
     private String externalLink;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getExternalLink() {
         return externalLink;

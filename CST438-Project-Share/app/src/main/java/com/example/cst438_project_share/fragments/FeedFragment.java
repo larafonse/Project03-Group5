@@ -1,6 +1,5 @@
 package com.example.cst438_project_share.fragments;
 
-import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,11 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cst438_project_share.PostAdapter;
-import com.example.cst438_project_share.PostApiService;
+import com.example.cst438_project_share.ApiService;
 import com.example.cst438_project_share.Posts;
 import com.example.cst438_project_share.R;
 
-import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,13 +63,13 @@ public class FeedFragment extends Fragment {
                     .build();
         }
 
-        PostApiService postApiService = retrofit.create(PostApiService.class);
-        Call<List<Posts>> call = postApiService.getPosts();
+        ApiService apiService = retrofit.create(ApiService.class);
+        Call<List<Posts>> call = apiService.getPosts();
         call.enqueue(new retrofit2.Callback<List<Posts>>() {
             @Override
             public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+                posts = new ArrayList<>();
                 posts = response.body();
-                Log.i(TAG, "here21");
                 recyclerView.setAdapter(new PostAdapter(getContext(), posts));
                 recyclerView.smoothScrollToPosition(0);
                 Log.i("RetroFitDatabase", "Num of posts: " + posts);
