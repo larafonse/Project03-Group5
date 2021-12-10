@@ -18,11 +18,22 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    public static final String TAG= "MainActivity";
+    public static final String TAG= "RegisterActivity";
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
+
+    private static Retrofit retrofit = null;
+    public static final String BASE_URL = "https://project-share-g5.herokuapp.com/";
 
     EditText username, password, repassword;
     Spinner occupation;
@@ -86,6 +97,35 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                     repassword.setError("Passwords do not match!");
                     repassword.setBackgroundTintList(getApplication().getResources().getColorStateList(R.color.red));
                 }
+
+                if (retrofit == null) {
+                    retrofit = new Retrofit.Builder()
+                            .baseUrl(BASE_URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                }
+
+                ApiService apiService = retrofit.create(ApiService.class);
+                apiService.insertUser(uName, "none", "none", "none", uPassword, "none", uOccupation).enqueue(
+                    new Callback<Users>() {
+                        @Override
+                        public void onResponse(Call<Users> call, Response<Users> response) {
+                            if (response.message().equals("Created")) {
+                                Toast.makeText(RegisterActivity.this, "Account Created! Login!", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(i);
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "Account NOT Created!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Users> call, Throwable t) {
+                            Toast.makeText(RegisterActivity.this, "Account NOT Created!", Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, "Unable to submit post to API.");
+                        }
+                    }
+                );
             }
         });
     }
