@@ -19,19 +19,22 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     final FragmentManager fragmentManager = getSupportFragmentManager();
+    int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int value = getIntent().getExtras().getInt("user_id");
-        Log.i("ID:", String.valueOf(value));
+        userId = getIntent().getExtras().getInt("user_id");
+        Log.i("ID:", String.valueOf(userId));
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
+                Bundle bundle = new Bundle();
+                bundle.putInt("userID", userId);
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         fragment = new FeedFragment();
                 }
+                fragment.setArguments(bundle);
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
