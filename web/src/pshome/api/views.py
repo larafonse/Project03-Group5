@@ -22,18 +22,6 @@ class UserViewSet(viewsets.ModelViewSet):
          queryset = queryset.filter(id=int(id))
       return queryset
 
-   def create(self, validated_data):
-      username = self.request.query_params.get('username')
-      password = self.request.query_params.get('password')
-      first_name = self.request.query_params.get('first_name')
-      last_name = self.request.query_params.get('last_name')
-      user_description = self.request.query_params.get('user_description')
-      picture_url = self.request.query_params.get('picture_url')
-      role = self.request.query_params.get('role')
-      user = User.create(username, first_name,last_name,user_description,password,picture_url,role)
-      user.save()
-      return JsonResponse({"message":username + " was successfully created"})
-
 class PostViewSet(viewsets.ModelViewSet):
    queryset = Post.objects.all()
    serializer_class = PostSerializer
@@ -46,6 +34,7 @@ class PostViewSet(viewsets.ModelViewSet):
          queryset = queryset.filter(user_id=user)
         
       return queryset
+
 
    def create(self, validated_data):
       user_id = self.request.query_params.get('user_id')
@@ -62,6 +51,7 @@ class PostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
    queryset = Comment.objects.all()
    serializer_class = CommentSerializer
+   
    def create(self,validated_data):
       user_id = self.request.query_params.get('user_id')
       post_id = self.request.query_params.get('post_id')
@@ -71,4 +61,5 @@ class CommentViewSet(viewsets.ModelViewSet):
       post = Post.objects.get(id=post_id)
 
       comment = Comment.create(user,post,text)
+      comment.save()
       return JsonResponse({"message":user.username+"'s comment was successfully posted"})
