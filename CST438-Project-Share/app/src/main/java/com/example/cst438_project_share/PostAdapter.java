@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.cst438_project_share.fragments.FeedFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -46,7 +48,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.techStack.setText(postsList.get(position).getTechStack());
         holder.projectDes.setText(postsList.get(position).getDescription());
 
-        Picasso.with(context).load(postsList.get(position).getImgURL()).into(holder.projectImg);
+        Glide.with(context)
+                .load(postsList.get(position).getImgURL())
+                .placeholder(R.drawable.project_share_logo)
+                .into(holder.projectImg);
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
@@ -55,14 +60,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     .build();
         }
 
-        Log.i("Adapter", postsList.get(position).getUserId() + " ");
-
         ApiService apiService = retrofit.create(ApiService.class);
         Call<List<Users>> call = apiService.getUserById(postsList.get(position).getUserId());
         call.enqueue(new retrofit2.Callback<List<Users>>() {
             @Override
             public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
-                Log.i("Adapter", postsList.get(position).getUserId() + " " + response.body().size() + " " + response.body().toString());
                 Users users = response.body().get(0);
                 holder.projectOwner.setText(users.username);
                 holder.projectRole.setText(users.role);

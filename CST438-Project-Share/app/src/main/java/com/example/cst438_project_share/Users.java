@@ -28,6 +28,16 @@ public class Users {
     @SerializedName("role")
     String role;
 
+    public Users(String username, String first_name, String last_name, String user_description, String password, String picture_url, String role) {
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.user_description = user_description;
+        this.password = password;
+        this.picture_url = picture_url;
+        this.role = role;
+    }
+
     public int getId() {
         return id;
     }
@@ -90,5 +100,19 @@ public class Users {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "username='" + username + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", user_description='" + user_description + '\'' +
+                ", password='" + password + '\'' +
+                ", picture_url='" + picture_url + '\'' +
+                ", role='" + role + '\'' +
+                ", id= " + id + '\'' +
+                '}';
     }
 }
