@@ -5,4 +5,16 @@
 
 {% block body %}
 <h1>Sign-up</h1>
+<button type="submit"><a href="/login">Login</a></button>
+<form action="/signup/">
+    <label> First Name: </label>
+    <input type="text" required autocomplete="off"/>
+    <label> Last Name: </label>
+    <input type="text" required autocomplete="off"/>
+    <label> Email Address: </label>
+    <input type="email" required autocomplete="off"/>
+    <label> Password: </label>
+    <input type="password" required autocomplete="off"/>
+    <button type="submit">Sign-Up</button>    
+</form>
 {% endblock %}
