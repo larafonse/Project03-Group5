@@ -3,12 +3,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ComposeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="center"
+        android:background="#E7AEF7">
+
+        <TextView
+            android:id="@+id/projectN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Project Name"
+            android:textColor="#57EC47"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <EditText
+            android:id="@+id/p_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="Project Name"
+            android:layout_below="@+id/projectN"
+            android:layout_toRightOf="@+id/project_img"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/projectTS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tech Stach"
+            android:textColor="#57EC47"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/p_name"
+            />
+
+        <EditText
+            android:id="@+id/p_techS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="Tech stack . . ."
+            android:layout_below="@+id/projectTS"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/destv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="#57EC47"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/p_techS"
+            />
+
+        <EditText
+            android:id="@+id/p_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="Description . . ."
+            android:layout_below="@+id/destv"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:maxLines="5"/>
+
+        <TextView
+            android:id="@+id/urlTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Image URL"
+            android:textColor="#57EC47"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/p_des"
+            />
+
+        <EditText
+            android:id="@+id/p_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:hint="Project image URL . . ."
+            android:layout_below="@+id/urlTV"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:maxLines="5"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Post"
+            android:layout_below="@+id/p_url"
+            android:layout_centerInParent="true"
+            android:id="@+id/addPost"
+            app:backgroundTint="#9116B5"/>
+
+    </RelativeLayout>
 
 </FrameLayout>

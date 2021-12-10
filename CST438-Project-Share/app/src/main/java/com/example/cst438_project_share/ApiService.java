@@ -36,4 +36,15 @@ public interface ApiService {
             @Field("picture_url") String picture_url,
             @Field("role") String role
     );
+
+    @POST("api/posts/?")
+    @FormUrlEncoded
+    Call<Posts> insertPost(
+            @Field("project_name") String project_name,
+            @Field("tech_stack") String tech_stack,
+            @Field("project_description") String project_description,
+            @Field("project_img") String project_img,
+            @Field("external_link") String external_link,
+            @Field("user_id") int user_id
+    );
 }

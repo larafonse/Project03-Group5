@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
+    tools:context=".fragments.ProfileFragment"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#E7AEF7"
+        >
 
         <ImageView
             android:id="@+id/user_img"
@@ -49,7 +52,7 @@
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="Role"
             android:textColor="#57EC47"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -58,13 +61,13 @@
             android:layout_marginLeft="15dp"/>
 
         <TextView
-            android:id="@+id/user_password"
+            android:id="@+id/user_role"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:hint="Password"
+            android:hint="Role"
             android:layout_below="@+id/password"
             android:layout_toRightOf="@+id/user_img"
             android:layout_marginLeft="15dp" />

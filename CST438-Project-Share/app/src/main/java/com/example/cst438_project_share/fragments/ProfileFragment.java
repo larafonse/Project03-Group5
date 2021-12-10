@@ -12,11 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.cst438_project_share.ApiService;
 import com.example.cst438_project_share.PostAdapter;
 import com.example.cst438_project_share.Posts;
 import com.example.cst438_project_share.R;
+import com.example.cst438_project_share.Users;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,8 @@ public class ProfileFragment extends Fragment {
     private static Retrofit retrofit = null;
     public static final String BASE_URL = "https://project-share-g5.herokuapp.com/";
 
+    TextView username, role;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -51,9 +55,14 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        int userID = getArguments().getInt("userID");
+
         recyclerView = view.findViewById(R.id.rvProfile);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        username = view.findViewById(R.id.user_username);
+        role = view.findViewById(R.id.user_role);
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
@@ -69,14 +78,34 @@ public class ProfileFragment extends Fragment {
             public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
                 posts = new ArrayList<>();
                 posts = response.body();
-                recyclerView.setAdapter(new PostAdapter(getContext(), posts));
+                List<Posts> nPosts = new ArrayList<>();
+                for (int i = 0; i < posts.size(); i++) {
+                    if (posts.get(i).getUserId() == userID){
+                        nPosts.add(posts.get(i));
+                    }
+                }
+                recyclerView.setAdapter(new PostAdapter(getContext(), nPosts));
                 recyclerView.smoothScrollToPosition(0);
-                Log.i("RetroFitDatabase", "Num of posts: " + posts);
+                Log.i("RetroFitDatabase", "Num of posts: " + nPosts);
             }
 
             @Override
             public void onFailure(Call<List<Posts>> call, Throwable t) {
                 Log.e("RetroFitDatabase", "Error: " + t.toString());
+            }
+        });
+
+        Call<List<Users>> call1 = apiService.getUserById(userID);
+        call1.enqueue(new retrofit2.Callback<List<Users>>() {
+            @Override
+            public void onResponse(Call<List<Users>> call, Response<List<Users>> response) {
+                username.setText(response.body().get(0).getUsername());
+                role.setText(response.body().get(0).getRole());
+            }
+
+            @Override
+            public void onFailure(Call<List<Users>> call, Throwable t) {
+
             }
         });
     }
