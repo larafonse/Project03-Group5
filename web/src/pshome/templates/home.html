@@ -4,6 +4,46 @@
 {%block title %}Landing {% endblock  %}
 
 {% block body %}
-<h1>Home page</h1>
+
+<div class="banner">
+    <h1>Welcome to Project Share!</h1>
+    <img src="https://github.com/larafonse/Project03-Group5/raw/main/img/project_share_logo.png"/>
+</div>
+
+<center>
+
+<!-- <div class="grid-container">
+    {% for project in projets %} 
+        {%include 'pshome/includes/project.html' with project=project%}
+    {%endfor%}
+    
+</div> -->
+<h1 style="text-decoration:underline;">Project Creators </h1>
+<div>
+    <div class="images">
+    <figure>
+      <img src="https://avatars.githubusercontent.com/u/53790797?v=4">
+      <figcaption class="names"> Makayla K. Rodriguez </figcaption>
+    </figure>
+    
+    <figure>
+      <img src="https://avatars.githubusercontent.com/u/53790568?v=4">
+      <figcaption class="names"> Rodrigo Andrade </figcaption>
+    </figure>
+    
+    <figure>
+      <img
+      src="https://media-exp1.licdn.com/dms/image/C5603AQF4ALoaOPW6ow/profile-displayphoto-shrink_100_100/0/1598731607081?e=1644451200&v=beta&t=nlMnNoQSwQHrTU97bd7ucp8XDIKKxFbtVhugp9jzjPw" width = "100px">
+      <figcaption class="names"> Jennifer Sophia Lopez </figcaption>
+    </figure>
+    
+    <figure>
+      <img
+      src="https://avatars.githubusercontent.com/u/53790517?v=4"
+      >
+      <figcaption class="names"> Nicolas Lara Fonseca </figcaption>
+    </figure>
+    </div>
+</center>
 
 {% endblock %}

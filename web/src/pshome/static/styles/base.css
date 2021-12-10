@@ -1,5 +1,5 @@
 html {
-    background-color: #f0eab9;
+    background-color: #e7aef7;
     font-family: Georgia;
 }
 ul {
@@ -8,7 +8,9 @@ ul {
     padding: 0;
     overflow: hidden;
 }
-  
+h1{
+    color: #9116B5;
+}
 li {
     float: left;
 }
@@ -17,4 +19,48 @@ li a {
     display: block;
     padding: 8px;
     background-color: #dddddd;
+}
+.container {
+    border-radius: 5px;
+    background-color: #cab7b7;
+    padding: 20px;
+}
+.banner{
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #9116B5;
+    background-color:#f0d7f7;
+    margin: 2%;
+}
+.banner h1{
+    float: left;
+    margin-top: 15%;
+    margin-left: 10%;
+    font-size: 50px;
+    font-family: serif;
+}
+.banner img{
+    width: 400px;
+    height: 400px;
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.images {
+    display:flex;
+    justify-content: center;
+    height: 250px;
+    width: 250px;
+}
+.images img{
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #9116B5;
+    height: 250px;
+    width: 250px;
+}
+.names{
+    font-size: 25px;
+    color: #9116B5;
+    margin-top: 10px;
 }
