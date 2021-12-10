@@ -3,6 +3,8 @@ Project Share
 
 Created By: Makayla K. Rodriguez, Rodrigo Andrade, Jennifer Sophia Lopez, and Nicolas Lara Fonseca
 
+![logo](/img/project_share_logo.png)
+
 ## Description
 
 Users are able to post project ideas, open source projects, and or collaborative projects!
