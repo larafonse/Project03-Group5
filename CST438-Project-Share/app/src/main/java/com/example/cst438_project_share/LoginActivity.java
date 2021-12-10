@@ -65,7 +65,13 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(results.length() != 0){
                                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(i);
+                                try {
+                                    JSONObject user = results.getJSONObject(0);
+                                    i.putExtra("user_id",user.getInt("id"));
+                                    startActivity(i);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                             else{
                                 Toast.makeText(LoginActivity.this, "Error: Incorrect Username/Password", Toast.LENGTH_LONG).show();
