@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#E7AEF7">
 
     <EditText
         android:id="@+id/Rusername"
@@ -58,6 +59,7 @@
         android:layout_below="@+id/reRpassword"
         android:layout_centerInParent="true"
         android:layout_marginTop="25dp"
-        android:text="@string/Register"/>
+        android:text="@string/Register"
+        app:backgroundTint="#9116B5"/>
 
 </RelativeLayout>
